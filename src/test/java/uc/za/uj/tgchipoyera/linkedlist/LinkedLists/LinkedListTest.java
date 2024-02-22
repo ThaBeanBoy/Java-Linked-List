@@ -83,11 +83,24 @@ public class LinkedListTest {
     @Test
     public void removeTail(){
         LinkedList<Integer> TestList = new LinkedList<Integer>(1, 2, 3, 1000);
-
+        
         assertEquals(4, TestList.getSize());
 
         TestList.removeTail();
 
         assertEquals(3, TestList.getSize());
     }
+
+    @Test
+    public void remove(){
+        LinkedList<Integer> TestList = new LinkedList<Integer>(1, 1000, 2, 3);
+
+        assertEquals(4, TestList.getSize());
+
+        TestList.remove(1);
+
+        assertEquals(3, TestList.getSize());
+
+        assertEquals(2, TestList.get(1));
+    } 
 }

@@ -32,20 +32,22 @@ public class LinkedList<E> {
 
     // Adding node
 
-    public void addHead(E element){
+    public LinkedList<E> addHead(E element){
         this.head = new Node<E>(element, this.head);
 
         if(this.isEmpty()) this.tail = this.head;
 
-        size++;
+        this.size++;
+
+        return this;
     }
 
-    public void add(E element, int index) throws IndexOutOfBoundsException {
-        if(this.isEmpty() || index == 0) this.addHead(element);
+    public LinkedList<E> add(E element, int index) throws IndexOutOfBoundsException {
+        if(this.isEmpty() || index == 0) return this.addHead(element);
 
         else if(index > this.size - 1) throw new IndexOutOfBoundsException();
 
-        else if(index == this.size-1) this.addTail(element);
+        else if(index == this.size-1) return this.addTail(element);
 
         else{
             Node<E> before = this.getNode(index-1);
@@ -53,12 +55,14 @@ public class LinkedList<E> {
             Node<E> newNode = new Node<E>(element, before.getNext());
     
             before.setNext(newNode);
-        }
+            
+            this.size++;
 
-        size++;
+            return this;
+        }
     } 
 
-    public void addTail(E element){
+    public LinkedList<E> addTail(E element){
         Node<E> newNode = new Node<E>(element, null);
 
         if(this.isEmpty()) {
@@ -69,15 +73,15 @@ public class LinkedList<E> {
 
         this.tail = newNode;
 
-        size++;
+        this.size++;
+
+        return this;
     }
 
     // Removing node
 
-    public E removeHead(){
-        if(this.isEmpty()) return null;
-
-        E answer = this.head.getElement();
+    public LinkedList<E> removeHead(){
+        if(this.isEmpty()) return this;
 
         this.head = this.head.getNext();
 
@@ -87,11 +91,11 @@ public class LinkedList<E> {
             this.tail = null;
         }
 
-        return answer;
+        return this;
     }
 
-    public E removeTail(){
-        if(isEmpty()) return null;
+    public LinkedList<E> removeTail(){
+        if(isEmpty()) return this;
 
         else if(this.size == 1) return this.removeHead();
         
@@ -108,7 +112,25 @@ public class LinkedList<E> {
             
             this.size--;
 
-            return answerNode.getElement();
+            return this;
+        }
+    }
+
+    public LinkedList<E> remove(int index){
+        if(this.isEmpty() || index == 0) return this.removeHead();
+
+        else if(index > this.size - 1) throw new IndexOutOfBoundsException();
+
+        else if(index == this.size-1) return this.removeTail();
+
+        else{
+            Node<E> before = this.getNode(index-1);
+
+            before.setNext(before.getNext().getNext());
+            
+            this.size--;
+
+            return this;
         }
     }
 
