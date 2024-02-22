@@ -56,7 +56,7 @@ public class LinkedList<E> {
     }
 
     public void addLast(E element){
-        Node<E> newNode = new Node(element, null);
+        Node<E> newNode = new Node<E>(element, null);
 
         if(this.isEmpty()) {
             this.head = newNode;
