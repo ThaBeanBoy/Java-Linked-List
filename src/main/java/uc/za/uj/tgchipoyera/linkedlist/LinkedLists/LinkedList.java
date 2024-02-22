@@ -1,37 +1,69 @@
 package uc.za.uj.tgchipoyera.linkedlist.LinkedLists;
 
+/**
+ * LinkedList
+ * @param <E> The type stored in the linked list
+ */
 public class LinkedList<E> {
     private Node<E> head = null;
     private Node<E> tail = null;
     private int size = 0;
 
+    /**
+     * Constructs LinkedList object
+     * @param Elements Default values to insert in the LinkedList
+     */
     public LinkedList(E... Elements){ 
         for(int i = Elements.length - 1; i >= 0; i--) this.addHead(Elements[i]);
     }
 
-    // getters
+    // GETTERS
+
+    /**
+     * Gets the size of the LinkedList
+     * @return size
+     */
     public int getSize(){
         return this.size;
     }
 
+    /**
+     * Gets the element inside the head node of the LinkedList
+     * @return Node
+     */
     public E getHead(){
         if(this.isEmpty()) return null;
 
         return this.head.getElement();
     }
 
+    /**
+     * Gets the element inside the tail node of the LinkedList
+     * @return Element
+     */
     public E getTail(){
         if(this.isEmpty()) return null;
 
         return this.tail.getElement();
     }
 
+    /**
+     * Gets the element inside node located at the index specified
+     * @param index index of node
+     * @return the element inside the node
+     * @throws IndexOutOfBoundsException if the index is outside the bounds of the LinkedList
+     */
     public E get(int index) throws IndexOutOfBoundsException{
         return this.getNode(index).getElement();
     }
 
-    // Adding node
+    // ADDERS
 
+    /**
+     * Adds new head node in the LinkedList
+     * @param element the element to place inside the head node.
+     * @return The current LinkedList
+     */
     public LinkedList<E> addHead(E element){
         this.head = new Node<E>(element, this.head);
 
@@ -42,6 +74,13 @@ public class LinkedList<E> {
         return this;
     }
 
+    /**
+     * Adds element to the LinkedList at the specified index
+     * @param element the element to be stored in the LinkedList
+     * @param index the index to place the element
+     * @return The current LinkedList
+     * @throws IndexOutOfBoundsException if the index is outside the bounds of the LinkedList
+     */
     public LinkedList<E> add(E element, int index) throws IndexOutOfBoundsException {
         if(this.isEmpty() || index == 0) return this.addHead(element);
 
@@ -60,8 +99,13 @@ public class LinkedList<E> {
 
             return this;
         }
-    } 
+    }
 
+    /**
+     * Adds new tail node in the LinkedList
+     * @param element the element at the tail
+     * @return The current LinkedList
+     */
     public LinkedList<E> addTail(E element){
         Node<E> newNode = new Node<E>(element, null);
 
@@ -78,8 +122,12 @@ public class LinkedList<E> {
         return this;
     }
 
-    // Removing node
+    // REMOVERS
 
+    /**
+     * Removes the head and sets the node after the head as the new head
+     * @return The current LinkedList
+     */
     public LinkedList<E> removeHead(){
         if(this.isEmpty()) return this;
 
@@ -94,6 +142,10 @@ public class LinkedList<E> {
         return this;
     }
 
+    /**
+     * Removes the tail and sets the node before the tail as the new tail
+     * @return The current LinkedList
+     */
     public LinkedList<E> removeTail(){
         if(isEmpty()) return this;
 
@@ -116,6 +168,11 @@ public class LinkedList<E> {
         }
     }
 
+    /**
+     * Removes the element at the specified index
+     * @param index the index
+     * @return The current LinkedList
+     */
     public LinkedList<E> remove(int index){
         if(this.isEmpty() || index == 0) return this.removeHead();
 
@@ -134,11 +191,22 @@ public class LinkedList<E> {
         }
     }
 
-    // utility function
+    // UTILITIES
+
+    /**
+     * Gets whether the LinkedList is empty
+     * @return boolean
+     */
     public boolean isEmpty(){
         return this.size == 0;
     }
 
+    /**
+     * Gets the node at the specified index
+     * @param index
+     * @return The node at the index
+     * @throws IndexOutOfBoundsException if the index is outside the bounds of the LinkedList
+     */
     private Node<E> getNode(int index) throws IndexOutOfBoundsException{
         if(isEmpty()) return null;
 
