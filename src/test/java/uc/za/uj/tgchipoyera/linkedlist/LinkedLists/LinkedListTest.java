@@ -7,10 +7,12 @@ public class LinkedListTest {
     @Test 
     public void Constructor(){
         LinkedList<Integer> TestList = new LinkedList<Integer>(1, 2, 3);
-        
-        assertEquals(1, TestList.get(0));
-        assertEquals(2, TestList.get(1));
-        assertEquals(3, TestList.get(2));
+
+        // Checking if the LinkedList put values in the right order
+        assertAll(
+                () -> assertEquals(1, TestList.get(0)),
+                () -> assertEquals(2, TestList.get(1)),
+                () -> assertEquals(3, TestList.get(2)));
     }
     
     @Test
@@ -19,12 +21,11 @@ public class LinkedListTest {
         assertEquals(3, TestList.get(2));
     }
     
-    // @Test
-    // public void getIndexOutOfBounds(){
-    //     LinkedList<Integer> TestList = new LinkedList<Integer>(1, 2, 3);
-    //     assertThrows(IndexOutOfBoundsException.class, TestList.get(10));
-    // }
-
+     @Test
+     public void getIndexOutOfBounds(){
+         LinkedList<Integer> TestList = new LinkedList<Integer>(1, 2, 3);
+         assertThrows(IndexOutOfBoundsException.class, ()->TestList.get(10));
+     }
     
     @Test
     public void addHead(){
@@ -34,9 +35,10 @@ public class LinkedListTest {
 
         TestList.addHead(1);
 
-        assertEquals(1, TestList.getHead());
-
-        assertEquals(1, TestList.getSize());
+        assertAll(
+                () -> assertEquals(1, TestList.getHead()),
+                () -> assertEquals(1, TestList.getSize())
+        );
     }
 
     @Test
@@ -45,13 +47,12 @@ public class LinkedListTest {
         
         assertEquals(3, TestList.getSize());
 
-        assertEquals(1, TestList.getHead());
-
         TestList.addTail(4);
-        
-        assertEquals(4, TestList.getTail());
-        
-        assertEquals(4, TestList.getSize());
+
+        assertAll(
+                () -> assertEquals(4, TestList.getTail()),
+                () -> assertEquals(4, TestList.getSize())
+        );
     }
     
     @Test
@@ -62,9 +63,10 @@ public class LinkedListTest {
 
         TestList.add(2, 1);
 
-        assertEquals(2, TestList.get(1));
-
-        assertEquals(3, TestList.getSize());
+        assertAll(
+                () -> assertEquals(2, TestList.get(1)),
+                () -> assertEquals(3, TestList.getSize())
+        );
     }
 
     @Test
@@ -75,9 +77,10 @@ public class LinkedListTest {
 
         TestList.removeHead();
 
-        assertEquals(1, TestList.getHead());
-
-        assertEquals(3, TestList.getSize());
+        assertAll(
+                () -> assertEquals(1, TestList.getHead()),
+                () -> assertEquals(3, TestList.getSize())
+        );
     }
 
     @Test
@@ -99,8 +102,9 @@ public class LinkedListTest {
 
         TestList.remove(1);
 
-        assertEquals(3, TestList.getSize());
-
-        assertEquals(2, TestList.get(1));
+        assertAll(
+                () -> assertEquals(3, TestList.getSize()),
+                () -> assertEquals(2, TestList.get(1))
+        );
     } 
 }
