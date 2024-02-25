@@ -52,3 +52,5 @@ list and count each traversal.
 #### Deleting Tail
 
 #### Deleting Node in Interior of List
+
+## UML
