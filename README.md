@@ -41,9 +41,35 @@ list and count each traversal.
 
 #### Inserting New Head Node
 
+![head insertion](./docs/insertion/head.png)
+
+a) The linked list before insertion takes place.
+b) Create a new node and set its `next` reference to the linked list's head node.
+c) Set the linked list's `head` reference to the new node.
+
 #### Inserting New Tail
 
+In order to insert a new tail, we need the reference of the tail node. This can be achieved either by link hopping until the last node is 
+reach or the keeping a reference to the tail node.
+
+![tail insertion](./docs/insertion/tail.png)
+
+a) The linked list before insertion takes place.
+b) Create a new node and make its `next` reference `null`.
+c) Set the linked list's `tail` reference to `next` &  set the `tail` to the new node.
+
 #### Inserting in Interior of List
+
+Textbook does not provide any information to inserting a node in the interior of the linked list, but I came up with a little something.
+
+Let's assume we want to insert a node at index `n`. In order to do that, we need to perform link hopping to get node at position `n-1`, 
+let's call this `preNode`.
+
+![interior insertion](./docs/insertion/interior.png)
+
+a) The linked list before insertion takes place.
+b) Create a new node with its `next` reference set to `preNode`'s next reference.
+c) Set `preNode`'s next reference to the new node.
 
 ### Deletions
 
