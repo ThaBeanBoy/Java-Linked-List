@@ -44,7 +44,9 @@ list and count each traversal.
 ![head insertion](./docs/insertion/head.png)
 
 a) The linked list before insertion takes place.
+
 b) Create a new node and set its `next` reference to the linked list's head node.
+
 c) Set the linked list's `head` reference to the new node.
 
 #### Inserting New Tail
@@ -55,7 +57,9 @@ reach or the keeping a reference to the tail node.
 ![tail insertion](./docs/insertion/tail.png)
 
 a) The linked list before insertion takes place.
+
 b) Create a new node and make its `next` reference `null`.
+
 c) Set the linked list's `tail` reference to `next` &  set the `tail` to the new node.
 
 #### Inserting in Interior of List
@@ -68,7 +72,9 @@ let's call this `preNode`.
 ![interior insertion](./docs/insertion/interior.png)
 
 a) The linked list before insertion takes place.
+
 b) Create a new node with its `next` reference set to `preNode`'s next reference.
+
 c) Set `preNode`'s next reference to the new node.
 
 ### Deletions
