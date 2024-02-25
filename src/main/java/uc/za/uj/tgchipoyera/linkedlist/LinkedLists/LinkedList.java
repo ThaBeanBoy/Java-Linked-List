@@ -191,7 +191,7 @@ public class LinkedList<E> {
         }
     }
 
-    // UTILITIES
+    // UTILITIES(
 
     /**
      * Gets whether the LinkedList is empty
@@ -217,5 +217,28 @@ public class LinkedList<E> {
         for(int i=0; i<index; i++) answer = answer.getNext();
 
         return answer;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) return false;
+
+        if(this.getClass() != obj.getClass()) return false;
+
+        LinkedList other = (LinkedList) obj;
+
+        if(this.size != other.size) return false;
+
+        // link hopping both lists to check if each node is equal
+        Node ThisWalk = this.head;
+        Node OtherWalk = other.head;
+
+        while(ThisWalk != null){
+            if(!ThisWalk.getElement().equals(OtherWalk.getElement())) return false;
+            ThisWalk = ThisWalk.getNext();
+            OtherWalk = OtherWalk.getNext();
+        }
+
+        return true;
     }
 }
