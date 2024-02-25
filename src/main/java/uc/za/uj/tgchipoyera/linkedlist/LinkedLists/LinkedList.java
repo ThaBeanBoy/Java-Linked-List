@@ -86,7 +86,7 @@ public class LinkedList<E> {
 
         else if(index > this.size - 1) throw new IndexOutOfBoundsException();
 
-        else if(index == this.size-1) return this.addTail(element);
+        else if(index == this.size) return this.addTail(element);
 
         else{
             Node<E> before = this.getNode(index-1);

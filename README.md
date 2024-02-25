@@ -14,7 +14,7 @@
     + [Deleting Tail](#deleting-tail)
     + [Deleting Node in Interior of List](#deleting-node-in-interior-of-list)
 - [UML](#uml)
-- [Tests](#tests)
+- [Equivalence](#equivalence-testing)
 
 ## Introduction
 
@@ -136,8 +136,5 @@ b) Set the `preNode`'s next reference to `nodeN`'s next reference. This will res
 
 ## Equivalence Testing
 
-
-
-## Tests
-
-**NB: Only the addNode at specified index function is not working 🥲🥲, but all other tests are working**
+Each class overrides the equals method. It doesn't check whether objects are in the same memory location but checks whether
+the information is the same.
