@@ -61,7 +61,11 @@ public class Node<E> {
 
         Node other = (Node) obj;
 
-        if(this.next != other.next) return false;
+        if(this.next == null && other.next != null) return false;
+
+        if(this.next != null && other.next == null) return false;
+
+        if(this.next != null && !this.next.getElement().equals(other.next.getElement())) return false;
 
         if(!this.element.equals(other.element)) return false;
 

@@ -234,7 +234,7 @@ public class LinkedList<E> {
         Node OtherWalk = other.head;
 
         while(ThisWalk != null){
-            if(!ThisWalk.getElement().equals(OtherWalk.getElement())) return false;
+            if(!ThisWalk.equals(OtherWalk)) return false;
             ThisWalk = ThisWalk.getNext();
             OtherWalk = OtherWalk.getNext();
         }

@@ -134,6 +134,10 @@ b) Set the `preNode`'s next reference to `nodeN`'s next reference. This will res
 
 ![uml](./docs/uml.png)
 
+## Equivalence Testing
+
+
+
 ## Tests
 
 **NB: Only the addNode at specified index function is not working 🥲🥲, but all other tests are working**

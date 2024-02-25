@@ -32,8 +32,8 @@ public class NodeTest {
 
     @Test
     public void equals(){
-        Node<String> TestNode1 = new Node<String>("next node", null);
-        Node<String> TestNode2 = new Node<String>("next node", null);
+        Node<String> TestNode1 = new Node<String>("next node");
+        Node<String> TestNode2 = new Node<String>("next node");
 
         assertTrue(TestNode1.equals(TestNode2));
     }
