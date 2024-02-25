@@ -128,6 +128,12 @@ a) Linked list before removal
 
 b) Set the `preNode`'s next reference to `nodeN`'s next reference. This will result in `nodeN` dangling which will be disposed of by the garbage collector 
 
-## UML
+## UML, Classes & Methods
+
+### UML
+
+![uml](./docs/uml.png)
 
 ## Tests
+
+**NB: Only the addNode at specified index function is not working 🥲🥲, but all other tests are working**
