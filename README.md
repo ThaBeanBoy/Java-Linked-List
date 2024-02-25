@@ -39,4 +39,16 @@ list and count each traversal.
 
 ### Insertions
 
+#### Inserting New Head Node
+
+#### Inserting New Tail
+
+#### Inserting in Interior of List
+
 ### Deletions
+
+#### Deleting Head Node
+
+#### Deleting Tail
+
+#### Deleting Node in Interior of List
