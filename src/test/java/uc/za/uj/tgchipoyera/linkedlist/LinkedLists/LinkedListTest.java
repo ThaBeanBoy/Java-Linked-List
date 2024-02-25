@@ -106,5 +106,13 @@ public class LinkedListTest {
                 () -> assertEquals(3, TestList.getSize()),
                 () -> assertEquals(2, TestList.get(1))
         );
-    } 
+    }
+
+    @Test
+    public void equal(){
+        LinkedList<Integer> TestList1 = new LinkedList<Integer>(1, 2, 3);
+        LinkedList<Integer> TestList2 = new LinkedList<Integer>(1, 2, 3);
+
+        assertTrue(TestList1.equals(TestList2));
+    }
 }

@@ -50,4 +50,21 @@ public class Node<E> {
     public void setNext(Node<E> next){
         this.next = next;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null) return false;
+
+        if(! (obj instanceof Node)) return false;
+
+        if(this.getClass() != obj.getClass()) return false;
+
+        Node other = (Node) obj;
+
+        if(this.next != other.next) return false;
+
+        if(!this.element.equals(other.element)) return false;
+
+        return true;
+    }
 }

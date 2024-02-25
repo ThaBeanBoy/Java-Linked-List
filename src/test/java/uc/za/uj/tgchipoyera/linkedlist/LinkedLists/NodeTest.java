@@ -29,4 +29,12 @@ public class NodeTest {
         assertEquals(TestNode.getNext(), NextNode);
         
     }
+
+    @Test
+    public void equals(){
+        Node<String> TestNode1 = new Node<String>("next node", null);
+        Node<String> TestNode2 = new Node<String>("next node", null);
+
+        assertTrue(TestNode1.equals(TestNode2));
+    }
 }
