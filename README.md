@@ -1,5 +1,21 @@
 # LinkedLists
 
+## Table of Content
+
+- [Introduction](#introduction)
+- [Node](#node)
+- [Linked List](#linked-list)
+  * [Insertions](#insertions)
+    + [Inserting New Head Node](#inserting-new-head-node)
+    + [Inserting New Tail](#inserting-new-tail)
+    + [Inserting in Interior of List](#inserting-in-interior-of-list)
+  * [Deletions](#deletions)
+    + [Deleting Head Node](#deleting-head-node)
+    + [Deleting Tail](#deleting-tail)
+    + [Deleting Node in Interior of List](#deleting-node-in-interior-of-list)
+- [UML](#uml)
+- [Tests](#tests)
+
 ## Introduction
 
 These notes are derived from the [Data Structures and Algorithms in Java: International Student Version 6th Edition by Goodrich, M and Tamassia, R](https://www.directtextbook.com/isbn/9781118808573).
@@ -81,9 +97,36 @@ c) Set `preNode`'s next reference to the new node.
 
 #### Deleting Head Node
 
+![delete head](./docs/deletion/head.png)
+
+a) Linked list before removal
+
+b) Set linked list's `head` reference to the next node. This will result in the old `head` dangling which the garbage collector will dispose of.
+
+c) Final result of deleting the head
+
 #### Deleting Tail
 
+![delete tail](./docs/deletion/tail.png)
+
+Let's call the node before the tail the `preTail`
+
+a) Linked list before removal
+
+b) Set the `preTail`'s next reference to `null`
+
+c) Set the linked list's `tail` reference to the `preTail`. The old tail will dangle and the garbage collector will dispose of it
+
 #### Deleting Node in Interior of List
+
+![delete interior](./docs/deletion/interior.png)
+
+Let's assume we want to delete a node at index `n`, Let's call node at index n `nodeN`. In order to do that, we need to perform link hopping to get node at position `n-1`,
+let's call this `preNode`.
+
+a) Linked list before removal
+
+b) Set the `preNode`'s next reference to `nodeN`'s next reference. This will result in `nodeN` dangling which will be disposed of by the garbage collector 
 
 ## UML
 
